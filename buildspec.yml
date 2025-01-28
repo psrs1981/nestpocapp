@@ -22,6 +22,6 @@ phases:
       - docker push $REPOSITORY_URL:latest
       - docker push $REPOSITORY_URL:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"nestrest2api","imageUri":"%s"}]' $REPOSITORY_URL:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"demo-cluster","imageUri":"%s"}]' $REPOSITORY_URL:$IMAGE_TAG > imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
