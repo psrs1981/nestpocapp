@@ -8,7 +8,7 @@ phases:
       - aws ecr get-login-password --region us-east-1| docker login --username AWS --password-stdin 762233757534.dkr.ecr.us-east-1.amazonaws.com
       - REPOSITORY_URL=762233757534.dkr.ecr.us-east-1.amazonaws.com/nestapp
       - COMMIT_ID=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -b -8)
-      - IMAGE_TAG=$(echo $CODEBUILD_BUILD_NUMBER)
+      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_NUMBER)
   build:
     commands:
       - echo Build started on `date`
