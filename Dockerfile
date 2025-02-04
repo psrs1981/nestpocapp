@@ -1,6 +1,6 @@
 # Base image
 FROM node:18
-
+ARG ENV=dev
 # Create app directory
 WORKDIR /usr/src/nestpocapp
 
@@ -18,6 +18,10 @@ COPY . .
 
 # Creates a "dist" folder with the production build
 RUN npm run build
+
+RUN if [ "$ARG_NAME" = "dev" ]; then echo dev; \
+    elif [ "$ARG_NAME" = "uat" ]; then echo uat; \
+    else echo prod; fi
 RUN npm run test
 
 # Expose the port on which the app will run
