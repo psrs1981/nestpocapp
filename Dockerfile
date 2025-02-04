@@ -4,6 +4,8 @@ FROM node:18
 # Create app directory
 WORKDIR /usr/src/nestpocapp
 
+ARG ENV=DEV
+
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
@@ -19,7 +21,7 @@ COPY . .
 # Creates a "dist" folder with the production build
 RUN npm run build
 
-RUN if [ "$ARG_NAME" = "dev" ]; then echo dev; \
+RUN if [ "$ENV" = "DEV" ]; then echo dev; \
     elif [ "$ARG_NAME" = "uat" ]; then echo uat; \
     else echo prod; fi
 RUN npm run test
