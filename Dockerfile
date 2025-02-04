@@ -1,5 +1,3 @@
-ARG ENV=dev
-
 # Base image
 FROM node:18
 
