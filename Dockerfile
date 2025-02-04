@@ -22,7 +22,7 @@ COPY . .
 RUN npm run build
 
 RUN if [ "$ENV" = "DEV" ]; then echo dev; \
-    elif [ "$ARG_NAME" = "uat" ]; then echo uat; \
+    elif [ "$ENV" = "uat" ]; then echo uat; \
     else echo prod; fi
 RUN npm run test
 
