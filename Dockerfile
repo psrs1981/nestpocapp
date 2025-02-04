@@ -1,6 +1,8 @@
+ARG ENV=dev
+
 # Base image
 FROM node:18
-ARG ENV=dev
+
 # Create app directory
 WORKDIR /usr/src/nestpocapp
 
